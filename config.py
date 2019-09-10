@@ -10,7 +10,7 @@ class Config:
 
     # compare faces similarity threshold
     THRESHOLD = float(os.environ.get('THRESHOLD')) \
-        if 'THRESHOLD' in os.environ else 0.65
+        if 'THRESHOLD' in os.environ else 0.85
     # engine detector plugin name and filepath
     ENGINE_DETECTOR_PLUGIN = os.environ.get('ENGINE_DETECTOR_PLUGIN')
     ENGINE_DETECTOR_NAME = os.environ.get('ENGINE_DETECTOR_NAME')
