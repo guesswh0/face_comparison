@@ -31,21 +31,16 @@ def compare_faces():
         return unsupported("'target' image file type is not supported")
 
     source_image = imread(source)
-    target_image = imread(target)
-
     try:
         _, source_bb = engine.find_face(source_image)
     except FaceError as e:
-        msg = e.args[0]
-        msg += " on 'source' image"
-        return unprocessable(msg)
+        return unprocessable(e.args[0] + " on 'source' image")
 
+    target_image = imread(target)
     try:
         _, target_bbs = engine.find_faces(target_image)
     except FaceError as e:
-        msg = e.args[0]
-        msg += " on 'target' image"
-        return unprocessable(msg)
+        return unprocessable(e.args[0] + " on 'target' image")
 
     source_embedding = engine.compute_embeddings(source_image, [source_bb])
     target_embeddings = engine.compute_embeddings(target_image, target_bbs)
