@@ -10,22 +10,10 @@ def create_app(config_name):
     app = Flask(__name__)
     app.config.from_object(config[config_name])
 
-    # set FaceEngine detector model
-    detector = app.config['ENGINE_DETECTOR_NAME']
-    if detector:
-        plugin = app.config['ENGINE_DETECTOR_PLUGIN']
-        if plugin:
-            engine.use_plugin(detector, plugin)
-        else:
-            engine.detector = detector
-    # set FaceEngine embedder model
-    embedder = app.config['ENGINE_EMBEDDER_NAME']
-    if embedder:
-        plugin = app.config['ENGINE_EMBEDDER_PLUGIN']
-        if plugin:
-            engine.use_plugin(embedder, plugin)
-        else:
-            engine.embedder = embedder
+    # set FaceEngine models
+    engine.detector = app.config['ENGINE_DETECTOR_NAME']
+    engine.embedder = app.config['ENGINE_EMBEDDER_NAME']
+    engine.predictor = app.config['ENGINE_PREDICTOR_NAME']
 
     from .api import api
     app.register_blueprint(api, url_prefix='/api')

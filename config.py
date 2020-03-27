@@ -11,12 +11,11 @@ class Config:
     # compare faces similarity threshold
     THRESHOLD = float(os.environ.get('THRESHOLD')) \
         if 'THRESHOLD' in os.environ else 0.85
-    # engine detector plugin name and filepath
-    ENGINE_DETECTOR_PLUGIN = os.environ.get('ENGINE_DETECTOR_PLUGIN')
+
+    # FaceEngine models
     ENGINE_DETECTOR_NAME = os.environ.get('ENGINE_DETECTOR_NAME')
-    # engine embedder plugin name and filepath
-    ENGINE_EMBEDDER_PLUGIN = os.environ.get('ENGINE_EMBEDDER_PLUGIN')
     ENGINE_EMBEDDER_NAME = os.environ.get('ENGINE_EMBEDDER_NAME')
+    ENGINE_PREDICTOR_NAME = os.environ.get('ENGINE_PREDICTOR_NAME')
 
 
 class DevConfig(Config):
