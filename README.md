@@ -13,17 +13,9 @@
 #### Install dependencies
     pip3 install -r requirements.txt
     
+#### Development server
 
-### Run
-
-Export `.env` environment variables (configure it before):
-
-    export $(grep -v '^#' .env | xargs)
-    
-and run flask app:
-        
     flask run
-
 
 #### Deployment
 
