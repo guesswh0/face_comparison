@@ -13,7 +13,7 @@ def create_app(config_name):
     # set FaceEngine models
     engine.detector = app.config['ENGINE_DETECTOR_NAME']
     engine.embedder = app.config['ENGINE_EMBEDDER_NAME']
-    engine.predictor = app.config['ENGINE_PREDICTOR_NAME']
+    engine.predictor = app.config['ENGINE_ESTIMATOR_NAME']
 
     from .api import api
     app.register_blueprint(api, url_prefix='/api')

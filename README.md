@@ -2,16 +2,22 @@
 
 ## Installation
 
-#### Requirements
-
-* Python 3.6+
-
 #### Clone
 
-    git clone https://github.com/guesswh0/compare_faces.git
+    $ git clone https://github.com/guesswh0/compare_faces.git
     
 #### Install dependencies
-    pip3 install -r requirements.txt
+
+    $ pip3 install -r requirements.txt
+    
+#### Set up models
+
+To use default models:
+1. Install dlib (requires cmake): `$ pip install dlib`
+2. Fetch model pre-trained files: `$ fetch models`
+
+To use custom models, configure `.env`.
+        
     
 #### Development server
 

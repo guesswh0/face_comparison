@@ -15,7 +15,7 @@ class Config:
     # FaceEngine models
     ENGINE_DETECTOR_NAME = os.environ.get('ENGINE_DETECTOR_NAME')
     ENGINE_EMBEDDER_NAME = os.environ.get('ENGINE_EMBEDDER_NAME')
-    ENGINE_PREDICTOR_NAME = os.environ.get('ENGINE_PREDICTOR_NAME')
+    ENGINE_ESTIMATOR_NAME = os.environ.get('ENGINE_ESTIMATOR_NAME')
 
 
 class DevConfig(Config):

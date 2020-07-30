@@ -47,7 +47,7 @@
     **Content:** 
     `{
         "error": "unprocessable entity",
-        "message": "Face not found on 'source|target' image"
+        "message": "Face not found"
     }`
     
 * **Sample Call:**

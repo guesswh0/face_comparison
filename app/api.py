@@ -1,6 +1,5 @@
-from face_engine import FaceError
+from face_engine.exceptions import FaceNotFoundError
 from flask import Blueprint, request, jsonify, current_app
-from skimage.io import imread
 
 from . import engine
 from .errors import bad_request, unsupported, unprocessable
@@ -30,21 +29,10 @@ def compare_faces():
     if target is None or not allowed_files(target.filename):
         return unsupported("'target' image file type is not supported")
 
-    source_image = imread(source)
     try:
-        _, source_bb = engine.find_face(source_image)
-    except FaceError as e:
-        return unprocessable(e.args[0] + " on 'source' image")
-
-    target_image = imread(target)
-    try:
-        _, target_bbs = engine.find_faces(target_image)
-    except FaceError as e:
-        return unprocessable(e.args[0] + " on 'target' image")
-
-    source_embedding = engine.compute_embeddings(source_image, [source_bb])
-    target_embeddings = engine.compute_embeddings(target_image, target_bbs)
-    _, score = engine._predictor.compare(source_embedding, target_embeddings)
+        score = engine.compare_faces(source, target)[0]
+    except FaceNotFoundError:
+        return unprocessable('Face not found error')
 
     answer = dict()
     answer['FaceMatches'] = float(score) > current_app.config['THRESHOLD']
