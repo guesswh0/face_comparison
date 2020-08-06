@@ -1,14 +1,14 @@
 from face_engine import FaceEngine
 from flask import Flask
 
-from config import config
+from config import Config
 
 engine = FaceEngine()
 
 
-def create_app(config_name):
+def create_app():
     app = Flask(__name__)
-    app.config.from_object(config[config_name])
+    app.config.from_object(Config)
 
     # set FaceEngine models
     engine.detector = app.config['ENGINE_DETECTOR_NAME']
