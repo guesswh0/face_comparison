@@ -4,7 +4,7 @@
 
 #### Clone
 
-    $ git clone https://github.com/guesswh0/compare_faces.git
+    $ git clone https://github.com/guesswh0/face_comparison.git
     
 #### Install dependencies
 
@@ -14,7 +14,7 @@
 
 To use default models:
 1. Install dlib (requires cmake): `$ pip install dlib`
-2. Fetch model pre-trained files: `$ fetch models`
+2. Fetch model pre-trained files: `$ fetch_models`
 
 To use custom models, configure `.env`.
         
@@ -31,7 +31,7 @@ To _deploy_ see flask [deployment options](https://flask.palletsprojects.com/en/
 ##
  **Sample Call:**
   ```
-    curl -X POST [host:port]/api/faces/compare \
+    curl -X POST [host:port]/api/compare_faces \
         -F source=@face_image1.jpg \
         -F target=@face_image2.jpg
   ```

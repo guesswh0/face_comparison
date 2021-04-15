@@ -13,7 +13,7 @@ def allowed_files(filename):
            file_type in ['jpg', 'jpeg', 'png']
 
 
-@api.route('/faces/compare', methods=['POST'])
+@api.route('/compare_faces', methods=['POST'])
 def compare_faces():
     if 'source' not in request.files:
         return bad_request('no source file')

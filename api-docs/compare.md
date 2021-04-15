@@ -4,7 +4,7 @@
 
 * **URL**
 
-  /api/faces/compare
+  /api/compare_faces
 
 * **Method:**
 
@@ -53,7 +53,7 @@
 * **Sample Call:**
 
 ```bash
-curl -X POST [host:port]/api/faces/compare 
+curl -X POST [host:port]/api/compare_faces 
     -F source=@face_image1.jpg 
     -F target=@face_image2.jpg
 ```
